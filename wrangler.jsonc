@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-vite-get-started",
+  "compatibility_date": "2025-06-08",
+  "assets": {
+    "not_found_handling": "single-page-application",
+  }
+}

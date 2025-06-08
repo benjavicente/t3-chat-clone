@@ -4,42 +4,60 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm run /^.*:dev$/",
+    "build": "pnpm run /^.*:build$/",
+    "deploy": "pnpm run build && wrangler deploy",
     "web:dev": "vite --port 3000",
     "web:start": "vite --port 3000",
-    "web:build": "vite build && tsc",
+    "web:build": "vite build && tsgo",
     "web:serve": "vite preview",
     "test": "vitest run",
-    "format": "biome format",
+    "format": "biome format --fix",
     "lint": "biome lint",
     "check": "biome check",
     "convex:dev": "convex dev"
   },
   "dependencies": {
+    "@ai-sdk/google": "^1.2.19",
+    "@ai-sdk/openai": "^1.3.22",
     "@auth/core": "0.37.0",
     "@base-ui-components/react": "1.0.0-beta.0",
     "@convex-dev/agent": "^0.1.6",
     "@convex-dev/auth": "^0.0.87",
     "@convex-dev/react-query": "0.0.0-alpha.8",
     "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/react-query": "^5.80.6",
     "@tanstack/react-router": "^1.114.3",
     "@tanstack/react-router-devtools": "^1.114.3",
     "@tanstack/router-plugin": "^1.114.3",
+    "ai": "^4.3.16",
     "convex": "^1.19.2",
+    "convex-helpers": "^0.1.92",
+    "deepmerge-ts": "^7.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.6"
+    "tailwindcss": "^4.0.6",
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@cloudflare/vite-plugin": "^1.5.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
+    "@types/node": "^22.15.30",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@typescript/native-preview": "7.0.0-dev.20250608.1",
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^26.0.0",
     "typescript": "^5.7.2",
-    "vite": "^6.1.0",
+    "vite": "npm:rolldown-vite@latest",
     "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4",
+    "wrangler": "^4.19.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@latest"
+    }
   }
 }
